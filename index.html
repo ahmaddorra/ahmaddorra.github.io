@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Ahmad el Dorra">
+    <meta name="description" content="Ahmad el Dorra's Portfolio Website">
+    <title>Ahmad Dorra</title>
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+<!--    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#f39b07">-->
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+         
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <style>
+      html,body{overflow-x:hidden!important;}
+      .loading{
+        top:0;left:0;background:#fff;position:fixed;width:100vw;height:100vh;overflow:hidden;z-index:1000;
+      }
+      .loading .dot{
+        display:block;
+        top: calc(50% - 2.5em);
+        position:relative;width:5em;height:5em;margin:.8em auto;border-radius:50%;background:#ff7a18;
+      }
+      .loading .dot::before{position:absolute;content:"";width:100%;height:100%;background:inherit;border-radius:inherit;animation:wave 2s ease-out infinite}
+      @keyframes wave{50%,75%{transform:scale(2.5)}80%,100%{opacity:0}}
+      #hello-world-section{background:url(images/pexel-min.png) no-repeat fixed center center;background-size:cover;margin-bottom:30px}
+      #hello-world-section .svg-container{border:10px solid transparent;}
+      #hello-world-section svg{width:100%;height:100%;overflow-y:visible;overflow-x:hidden}
+      #hello-world-section svg mask rect{fill:#fff}
+      #hello-world-section svg>rect{fill:#fff;mask:url(#mask)}
+      #hello-world-section svg text{
+          text-anchor:middle;
+          font-size:12em;
+          font-family:bangla_mnregular;
+      }
+      #hello-world-section #gt{
+          animation: 3s ease-in-out blinking;
+          animation-iteration-count: 1;
+          font-family:Phosphate,Beirut,Farisi,Chalkduster;
+      }
+      .scroll-content{display:flex;flex-direction:row;width:200%!important;overflow-x:hidden}
+      .first{background:url(images/welcome-min.png) no-repeat center;background-size:contain;width:100%}
+      .laravel{display:block;margin-left:auto;margin-right:auto;width:50%}
+      #introduction{width:100%;margin:0 auto}
+      .manifesto-headline{
+          padding:40px 15% 0 15%;
+          background-repeat:no-repeat;
+          background:rgb(34,193,195);
+          background:linear-gradient(100deg,rgba(255,140,0,1) 0%,rgba(34,193,195,1) 100%);
+          background-size:cover;
+          -webkit-background-clip:text;
+          color:transparent}
+      .typography-hero-headline{text-align:justify;font-size:6em;line-height:1.04167;font-weight:600;letter-spacing:-.015em;font-family:"Helvetica","Arial",sans-serif}
+      .manifesto-copy{color:#1d1d1f;margin-bottom:34px}
+      .typography-hero-subhead{padding:0 15%;text-align:start;font-size:42px;line-height:1.08349;font-weight:400;letter-spacing:-.003em;font-family:"Helvetica","Arial",sans-serif}
+      h1+*,h2+*,h3+*,h4+*,h5+*,h6+*{margin-top:.8em}
+      .parallax{
+        background-image:url(images/a2-min.png),url(images/pexel-min.png);
+        height:450px;
+        background-attachment:fixed,scroll;
+        background-position:center,40%;
+        background-repeat:no-repeat;
+        background-size:100% 1150px, 58% 1000px;
+        background-size: cover, cover;
+      }
+      #beirut{width:1440px;height:1440px}
+      .motivation-section{padding:0 10px}
+      .motivation-div{top:70px;left:51%;position:absolute;transform:translate(-50%,0%)}
+      .motivation-ques{top:60px;background:url(images/bg-min.png);-webkit-background-clip:text;color:transparent;font-family:"Helvetica","Arial",sans-serif;font-size:80px;font-weight:900;animation:dynamic 7s infinite alternate linear;white-space:nowrap}
+      .motivation-text{margin-top:135px;text-align:justify;font-size:25px;font-weight:500;letter-spacing:.011em;font-family:"Helvetica","Helvetica","Arial",sans-serif}
+      @media only screen and (max-width:1366px){
+        .motivation-div{top:64px}
+        .motivation-ques{top:64px;font-size:75px;font-weight:800}
+        .motivation-text{font-size:22px}
+      }
+      @media only screen and (max-width:1300px){
+        .motivation-div{top:68px}
+        .motivation-ques{top:68px;font-size:60px;font-weight:700}
+        .motivation-text{margin-top:125px;font-size:21px}
+      }
+      @media only screen and (max-width:1200px){
+        .motivation-div{top:60px}
+        .motivation-ques{top:60px;font-size:50px}
+        .motivation-text{margin-top:100px;font-size:19px;letter-spacing:.021em}
+      }
+      @media only screen and (max-width:1157px){
+        .typography-hero-headline{font-size:5em}
+        .typography-hero-subhead{font-size:40px}
+      }
+      @media only screen and (max-width:1112px){
+        .motivation-div{top:55px}
+        .motivation-ques{top:55px}
+        .motivation-text{margin-top:95px;font-size:18px}
+      }
+      @media only screen and (max-width:1050px){
+        .motivation-ques{top:55px}
+        .motivation-text{line-height:1.65;font-size:16px}
+      }
+      @media only screen and (max-width:991px){
+        .motivation-text{line-height:1.8;padding:0 40px}
+      }
+      @media only screen and (max-width:964px){
+        .typography-hero-headline{font-size:4.6em}
+        .typography-hero-subhead{font-size:38px}
+      }
+      @media only screen and (max-width:891px){
+        .typography-hero-headline{font-size:3.8em}
+        .typography-hero-subhead{font-size:35px}
+      }
+      @media only screen and (max-width:734px){
+        .typography-hero-headline{font-size:40px;line-height:1.1;font-weight:600;letter-spacing:0em}
+        .typography-hero-subhead{font-size:21px;line-height:1.19048;font-weight:600;letter-spacing:.011em}
+        .parallax{height:300px;background-attachment:fixed,scroll;background-position:center,left;background-repeat:no-repeat;background-size:cover,cover}
+      }
+      @media only screen and (max-width:500px){
+        .typography-hero-headline{font-size:38px}
+        .typography-hero-subhead{padding:0 10%;font-size:21px}
+        .manifesto-headline{padding:40px 10% 0 10%}
+        .parallax{
+          height:250px;background-attachment:fixed,scroll;background-position:36%,left;background-repeat:no-repeat;
+          background-size: cover,cover;
+        }
+        .motivation-text{padding:0 35px}
+      }
+      @media only screen and (max-width:375px){
+        .typography-hero-headline{font-size:33px}
+        .typography-hero-subhead{padding:0 10%;font-size:18px}
+        .motivation-div{top:20px}
+        .motivation-ques{top:20px;font-size:45px;font-weight:700}
+        .motivation-text{padding:0 15px;margin-top:60px}
+      }
+      @media only screen and (max-width:320px){
+        .typography-hero-headline{font-size:28px}
+        .typography-hero-subhead{padding:0 10%;font-size:16px}
+      }
+      .interests-section img{
+          /* display:block;margin:0 auto;max-height:300px;max-width:100%*/
+          display: block;
+          margin: 0 auto;
+          width: auto;
+          max-height: 300px;
+          max-width:100%;
+      }
+      .interests-section{padding:0 10px}
+      .interests-section h2{font-family:"Arial Rounded MT Bold","Arial",sans-serif}
+      .interests-section h3{
+          /*color:#ff7a18;*/
+          color: #f56901;
+          font-family:"Arial Rounded MT Bold","Arial",sans-serif;margin-top:.5rem;text-align:center;
+          
+      }
+      .interests-section p{text-align:justify;padding:2rem 3rem;line-height:1.8;font-size:1.125em;font-family:"Helvetica","Arial",sans-serif}
+      .projects-section a{text-decoration:none}
+      .projects-section h2,.projects-section h3{font-weight:800;margin:0 0 1.5rem;line-height:1.1}
+      .projects-section h3 a:focus,.projects-section h3 a:hover{opacity:.66}
+      .projects-section h2{font-size:calc(1rem + .9vw)}
+      .projects-section{background:#fff;box-sizing:content-box;display:flex;position:relative;padding-left:.5rem}
+      .projects-section:after{content:"";position:absolute;right:0;top:3.2rem;bottom:3.6rem;width:3px;border-radius:5px;background:linear-gradient(130deg,#4065bc,#ff5480 43.28%,#ff7a18 66.39%);box-shadow:-8px 0 20px 3px #000}
+      .projects-header{font-family:"Arial Rounded MT Bold",Arial;margin-top:4rem;flex:0 0 250px;margin-right:.39rem;position:relative;padding:1.5rem;transform:translateY(-10px)}
+      .projects-header:before{content:"";background:linear-gradient(140deg,#ff7a18 25.21%,#ff5480 49.16%,#4065bc);position:absolute;top:-5px;left:-5px;width:calc(100% + 10px);height:calc(100% + 10px);z-index:1;border-radius:12px}
+      .projects-header:after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:#fff;z-index:2;border-radius:8px}
+      .projects-header>h2{position:relative;z-index:3}
+      @media (max-width:800px){
+        .projects-header{flex:0 0 0%;padding:.7rem}
+      }
+      .projects-grid{
+          padding:3.2rem 0 3rem 2rem;margin:0;display:flex;overflow-x:scroll;-webkit-overflow-scrolling:touch}
+      .projects-grid::-webkit-scrollbar{width:10px;height:10px}
+      .projects-grid::-webkit-scrollbar-thumb{background:#ff7a18;border-radius:10px;box-shadow:inset 2px 2px 2px hsla(0,0%,100%,.25),inset -2px -2px 2px rgba(0,0,0,.25)}
+      .projects-grid::-webkit-scrollbar-track{background:linear-gradient(90deg,#434343,#434343 1px,#262626 0,#262626);background:linear-gradient(to right,#7a7fb4 12.61%,#f32e2e 38.66%,#8b4343 66.81%,#166f4a)}
+      .project{padding:1.5rem;border-radius:14px;background:linear-gradient(85deg,#ffffff,#d8d8d8);color:#000;display:flex;flex-direction:column;transition:.2s;margin:0}
+      .project{min-width:310px;min-height:360px;box-shadow:-2rem 0 3rem -2rem #000}
+      .project:not(:first-child){margin-left:-130px;box-shadow:-3rem 0 3rem -2rem #000}
+      .project:hover{transform:translateY(-1rem) rotate(4deg);box-shadow:-1rem 0 3rem -1rem #ff7a18}
+      .project:hover~.project{transform:translateX(130px)}
+      .project:first-child:hover{transform:translate(-.5rem,-1rem) rotate(4deg)}
+      @media (max-width:1200px){
+        .project{min-width:220px}
+        .project:not(:first-child){margin-left:-30px}
+        .project:hover{transform:translateY(-1rem)}
+        .project:hover~.project{transform:translateX(30px)}
+      }
+      @media (max-width:800px){
+        .project{min-width:190px; min-height: 320px;}
+        .project:not(:first-child){margin-left:-10px}
+        .project:hover{transform:translateY(-1rem)}
+        .project:hover~.project{transform:translateX(10px)}
+      }
+      .project .title{font-size:1.3rem;color:#000!important;margin:0 0 1rem}
+      .project .description{line-height:1;margin:0 0 .5rem}
+      .project .description p{
+          font-family:"Arial",sans-serif;font-style:normal;font-weight:800;text-transform:uppercase;color:#ff7a18;font-size:.66rem;
+          
+          
+      }
+      .project img{width:100%; height: 100%}
+      .certificates-section h3{font-weight:800;margin:0 0 1.5rem}
+      .certificates-section h3 a{color:inherit}
+      .certificates-section h3 a:focus,h3 a:hover{opacity:.66}
+      .certificates-section h3{font-family:Sans-Serif;font-style:normal;font-size:2rem;letter-spacing:-.03rem;font-weight:800}
+      .certificates-section{box-sizing:content-box;position:relative;padding-left:.5rem;padding-right:.5rem}
+      .certificates-header{margin-top:4rem;flex:0 0 250px;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:20px 0;transform:translateY(-10px)}
+      .certificates-header:before{content:"";background:linear-gradient(140deg,#ff7a18,#af002d 51.26%,#4065bc 84.45%);position:absolute;top:-5px;left:-5px;width:calc(100% + 10px);height:calc(100% + 10px);z-index:1;border-radius:12px}
+      .certificates-header:after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:#fff;z-index:2;border-radius:8px}
+      .certificates-header>*{position:relative;z-index:3}
+      @media (max-width:800px){
+        /*.certificates-header{flex:0 0 175px}*/
+      }
+      .certificates-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));margin:0 0 1.5rem;position:relative}
+      .certificate{clear:both;margin:0 0 1rem;position:relative;padding:1.5rem;border-radius:16px;background:linear-gradient(85deg,#434343,#262626);color:#fff;display:flex;flex-direction:column;transition:.2s;margin:0}
+      .certificate>:last-child,.certificate>:last-child>:last-child{margin-bottom:0}
+      .certificate h3 a{line-height:1.1;color:#fff!important;text-decoration:none}
+      .certificate time{display:block;margin:0 0 .25rem;color:#777}
+      .certificate time strong{color:#d4d4d4;font-weight:700}
+      .certificate .title{font-size:1.3rem;margin:0 0 1rem;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+      .certificate img{width:100%; height:100%;}
+      .path{stroke-dasharray:1000;stroke-dashoffset:1000;-webkit-animation:dash 2s linear alternate infinite}
+      @-webkit-keyframes dash{from{stroke-dashoffset:1000}to{stroke-dashoffset:0}}
+      .certificate-svg{display: block;height:100px;align-self: center;overflow: visible;}
+      .certificate-svg text{font-size:65px}
+      @media only screen and (max-width:500px){
+        .interests-section img{
+              max-height: 220px;
+        }
+        .certificate-svg text{font-size:55px}
+               
+      }
+      @media only screen and (max-width:320px){
+        .certificate-svg text{font-size:55px}
+      }
+      .skills-intro{background:rgba(236,236,236,.37);padding:20px}
+      .skills-intro h2{font-family:"Arial Rounded MT Bold","Arial",sans-serif}
+      .skills-intro p{font-family:"Helvetica",sans-serif}
+      .skills-section{background:rgba(236,236,236,.37);padding:20px;width:100%;height:53vh;max-height:600px}
+      .swiper-container{width:85%;height:100%}
+      .swiper-slide{text-align:center;background:#fff;display:flex;justify-content:center;align-items:center}
+      .container-general{margin:0 auto;width:80%}
+      .container-general .gallery-wrap{display:flex;flex-direction:row;width:100%;height:50vh}
+      .container-general .gallery-wrap .item{flex:1;align-self: center;background-position:center;background-size:contain;background-repeat:no-repeat;transition:all 0.8s ease}
+      .container-general .gallery-wrap .item:hover .item{flex:.4}
+      .container-general .gallery-wrap .item:hover{flex:1.6}
+      .swiper-pagination{-webkit-transform:rotateX(1deg) rotateY(0) translate3d(0,25px,0);transform:rotateX(1deg) rotateY(0) translate3d(0,18px,0)!important}
+      .swiper-container-vertical>.swiper-pagination-bullets{top:40%!important}
+      .wrap-effect-1 .item img{
+        width: 100%;
+        height: 100%;
+       }
+      .wrap-effect-2 .item img{
+        width: 100%;
+        height: 100%;
+       }
+      .wrap-effect-3 .item img{
+        width: 100%;
+        height: 100%;
+      }
+      /*.wrap-effect-1 .item:first-of-type{background-image:url(images/swiper/1-min.png)}
+      .wrap-effect-1 .item:nth-of-type(2){background-image:url(images/swiper/2-min.png)}
+      .wrap-effect-1 .item:nth-of-type(3){background-image:url(images/swiper/3-min.png)}
+      .wrap-effect-1 .item:last-of-type{background-image:url(images/swiper/4-min.png)}
+      .wrap-effect-2 .item:first-of-type{background-image:url(images/swiper/5-min.png)}
+      .wrap-effect-2 .item:nth-of-type(2){background-image:url(images/swiper/6-min.png)}
+      .wrap-effect-2 .item:last-of-type{background-image:url(images/swiper/7-min.png)}
+      .wrap-effect-3 .item:first-of-type{background-image:url(images/swiper/8-min.png)}
+      .wrap-effect-3 .item:nth-of-type(2){background-image:url(images/swiper/9-min.png)}
+      .wrap-effect-3 .item:last-of-type{background-image:url(images/swiper/10-min.png)}*/
+    @media (max-width: 700px){
+        .skills-section{max-height: 300px}
+
+    }
+      @media (max-width:500px){
+        .skills-section{height:50vh; max-height: 400px }
+        .swiper-container{width:100%;height:50%}
+        .container-general .gallery-wrap.wrap-effect-1 .item{background-size:contain;background-repeat:no-repeat}
+        .container-general .gallery-wrap.wrap-effect-2 .item{background-size:contain;background-repeat:no-repeat}
+        .container-general .gallery-wrap.wrap-effect-3 .item{background-size:contain;background-repeat:no-repeat}
+        .container-general .gallery-wrap{display:flex;flex-direction:row;width:100%;height:30vh}
+        .container-general .gallery-wrap .item:hover .item{flex:.4}
+        .container-general .gallery-wrap .item:hover{flex:3}
+        
+        
+        .swiper-container-vertical>.swiper-pagination-bullets{top:28%!important}
+      }
+      @media only screen and (max-height: 635px) and (min-width: 870px){
+        .container-general {
+          width: 70%;
+        }
+      }
+      @media only screen and (max-height: 530px) and (min-width: 870px){
+        .container-general {
+          width: 55%;
+        }
+      }
+
+      @keyframes rotate{0%{transform:rotate(0deg) translate3d(0,0,0)}25%{transform:rotate(10deg) translate3d(0,0,0)}50%{transform:rotate(-10deg) translate3d(0,0,0)}75%{transform:rotate(5deg) translate3d(0,0,0)}100%{transform:rotate(0deg) translate3d(0,0,0)}}
+      .campus-footer{width:100vw;height:117px;background-image:url(images/footer.svg);background-repeat:repeat-x;background-position:bottom}
+      @media only screen and (min-width:530px) and (max-width:999px){
+        .campus-footer{background-repeat:no-repeat;width:100%;overflow:hidden}
+      }
+      footer{background:rgba(236,236,236,.37)}
+      footer .row{background:rgb(255,140,0)}
+      footer hr{background:#fff}
+      .connect-title,footer
+      .text-muted{color:white!important}
+      .connect-info .col-12{text-align:center}
+      .connect-info a{font-size:20px;text-decoration:none;color:#fff}
+      .linkedin:hover{color:#0077b5}
+      .gmail:hover{color:rgba(255,6,6,.95)}
+      @keyframes slice{0%{line-height:0%}100%{line-height:100%}}
+      @keyframes dynamic{0%{background-position:0%}100%{background-position:100%}}
+      @keyframes blinking{0%{fill:#800}25%{fill:#800}50%{fill:#fff}75%{fill:#800}100%{fill:#800}}
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css" rel="stylesheet"/>
+    <link href="fonts/fonts-stylesheet.css" rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/c4c221ed03.js" crossorigin="anonymous" defer></script>
+</head>
+<body>
+  <div class="loading"><div class="dot"></div></div>
+  <main>
+    <div id="hello-world-section">
+      <div class="svg-container">
+        <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920px" height="1080px" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <mask id="mask" x="0" y="0" width="1920" height="1080" >
+              <rect x="0" y="0" width="1920" height="1080"/>
+              <text id="gt" x="300" y="2.8em">&gt;</text>
+              <text x="960" y="2.9em">Hello World</text>
+            </mask></defs><rect x="0" y="0" width="1920" height="1080"/>
+          </svg>
+        </div>
+      </div>
+      <section style="background-color:white;" class="scroll-content">
+        <div class="first"></div>
+        <div id="introduction" class="second">
+          <h2 class="manifesto-headline typography-hero-headline">Who Am I ? <br/> I am Ahmad Dorra</h2>
+          <p class="manifesto-copy typography-hero-subhead">
+            I'm a freelance lebaense developer.
+            <br/>I recently graduated from Beirut Arab University, where I studied Computer Science.
+            <br/>I started by building websites, then grew interest in iOS App Development (especially after releasing SwiftUI).
+            <br/>I'm constantly learning new stuff: My focus currently is iOS Apps and Blockchain.
+          </p>
+        </div>
+      </section>
+      <div class="parallax"></div>
+      <section>
+          <div class="row d-flex motivation-section">
+        <div class="col-lg-6 col-12" style="position:relative">
+          <div class="motivation-div">
+            <h3 class="motivation-ques">My Motivation</h3>
+          </div>
+          <p class="motivation-text">
+            <br/>While Beirut has seen some progression towards beig a tech hub, it fell severly behind.<br/>I'm eager to see Beirut back in the digital era, and i look forward to work in an eiviroment that shares the same view.<br/>Perhaps the most fascinating project that i look forward to is the use of blockchain technology in government bodies, and i have studied that enough to know that there is much still much work to be done.<br/>Furthemore, unemployemnt rate has skyrocketted so getting youth in the technology sector can have prospureos reults.
+          </p>
+        </div>
+        <div class="col-lg-6 col-12 float-end">
+          <svg id="s" viewBox="0 0 1440 1440" style="width:100%;max-height:100vh;">
+            <image id="beirut" clip-path="url(#shape)" width="900" height="675" xlink:href="images/motivation-min.jpg" />
+            <defs>
+              <clipPath id="shape"></clipPath>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </section>
+      
+    <section class="interests-section">
+      <div class="row">
+        <div class="col-12">
+          <h2>Interests</h2>
+        </div>
+        
+            
+          <div class="col-md-6 d-none d-md-block mt-lg-4 mt-md-2">
+            <h3>Web Apps</h3>
+            <p>
+              Perhaps I am most experienced in building websites. My knowledge in web apps is diverse, it includes: php, laravel, javascript...
+                My receny focus has shifted to frontend development as i sensed the importance of having visually compelling graphics. I have been experimets with css, canvas,
+                wbebgl apart from javascript libraries.
+              </p>
+            </div>
+            <div class="col-md-6 col-12">
+              <img width="329" height="318" loading="lazy" src="images/computer-min.png" alt=""/>
+            </div>
+            <div class="col-12 d-block d-md-none">
+              <h3>Web Apps</h3>
+              <p>
+                Perhaps I am most experienced in building websites. My knowledge in web apps is diverse, it includes: php, laravel, javascript...
+                My receny focus has shifted to frontend development as i sensed the importance of having visually compelling graphics. I have been experimets with css, canvas,
+                wbebgl apart from javascript libraries.
+              </p>
+            </div>
+            
+              
+            <div class="col-md-6 col-12">
+              <img width="427" height="502" loading="lazy" src="images/mobile-min.png" alt=""/>
+            </div>
+            <div class="col-md-6 col-12 mt-lg-4 mt-md-2">
+              <h3>iOS App Development</h3>
+              <p>
+                Definetly what i am most passionnate about, I have spent my past months learning swift and swiftui. I'm working on allevatinng my skills in iOS App development to the next level. The really liked development enviromet apple provided from xcode all the way to the syntax and semantics of swift itself.</p>
+            </div>
+            
+              
+              <div class="col-md-6 d-none d-md-block mt-lg-4 mt-md-2"><h3>Data</h3><p>I want to go beyond functional and attractive interface to smart applications. I have been studying Data Science and I'm more than intrigued to find use of this knowledge in my projects. The internet is shifting from internet of information to that of value, Data is the new currency and we need
+                to both analyse it and protect it. Others interests inclued: cybersecurity, blockchain, AI...
+              </p>
+            </div>
+            <div class="col-md-6 col-12">
+              <img width="554" height="339" loading="lazy" src="images/data-min.png" alt=""/>
+            </div>
+            <div class="col-12 d-block d-md-none ">
+              <h3>Data</h3>
+              <p>I want to go beyond functional and attractive interface to smart applications. I have been studying Data Science and I'm more than intrigued to
+                find use of this knowledge in my projects. The internet is shifting from internet of information to that of value, Data is the new currency and we need
+                to both analyse it and protect it. Others interests inclued: cybersecurity, blockchain, AI...
+              </p>
+            </div>
+        </div>
+      </section>
+      <section class="projects-section">
+        <div class="projects-header">
+          <h2>Personal <br/>Projects</h2>
+        </div>
+        <div class="projects-grid">
+          <div class="project">
+            <h3 class="title">Landmarks App</h3>
+            <div class="description">
+              <p>Covers SwiftUI essentials, drwaing and aimations,and desig. (From Apple) </p>
+            </div>
+            <div><img width="270" height="155" loading="lazy" src="images/projects/landmarks-min.png" alt=""/></div>
+          </div>
+          <div class="project">
+            <h3 class="title">Scrumdinger</h3>
+            <div class="description">
+              <p>An app that keeps track of daily scrums. Covers everything from views to state management. (From Apple)</p>
+            </div>
+            <div><img width="270" height="155" loading="lazy" src="images/projects/scrum-min.png" alt=""/></div>
+          </div>
+          <div class="project">
+            <h3 class="title">Bulleseye App</h3>
+            <div class="description">
+              <p>Introduction to swift and SwiftUI. (From raywanderlich)</p>
+            </div>
+            <div><img width="224" height="168" loading="lazy" src="images/projects/coming-soon-min.jpg" alt=""/></div>
+          </div>
+          <div class="project">
+            <h3 class="title">Blockchain Application</h3>
+            <div class="description">
+              <p>Building a blockchain application from scratch. (From IBM)</p>
+            </div>
+            <div><img width="224" height="168" loading="lazy" src="images/projects/coming-soon-min.jpg" alt=""/></div>
+          </div>
+          <div class="project">
+            <h3 class="title">Spotify API</h3>
+            <div class="description">
+              <p>A website with attracting visuals with built in music player using spotify's API.</p>
+            </div>
+            <div><img width="224" height="168" loading="lazy" src="images/projects/coming-soon-min.jpg" alt=""/></div>
+          </div>
+          <div class="project">
+            <h3 class="title">Olive Oil Website</h3>
+            <div class="description">
+              <p>Inspired by an italian website, the project will be about lebaense olive oil.</p>
+            </div>
+            <div><img width="224" height="168" loading="lazy" src="images/projects/coming-soon-min.jpg" alt=""/></div>
+          </div>
+          <div class="project">
+            <h3 class="title">CSS Game</h3>
+            <div class="description">
+              <p>Building a css game similar whac-a-mole with a twist , with some python script as well.</p>
+            </div>
+            <div><img width="224" height="168" loading="lazy" src="images/projects/coming-soon-min.jpg" alt=""/></div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="certificates-section">
+        <div class="certificates-header">
+          <svg class="certificate-svg" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <text class="path" font-family="serif" id="svg_1" y="80"  stroke-width="2" stroke="#000000" fill="#000000">Certificates</text>
+          </svg>
+        </div>
+        <div class="certificates-grid mt-3">
+          <div class="certificate">
+            <time datetime="2020-12-21" title="Completed Oct 28, 2020">
+              <strong>Completed</strong> on Oct 28, 2020
+            </time>
+            <h3 class="title">
+              <a target="_blank" href="https://coursera.org/share/5fcc2c1e34bbd25ef764336b5ad8fda3" rel="noopener">Python for Everybody (5 courses)</a>
+            </h3>
+            <a target="_blank" href="https://coursera.org/share/5fcc2c1e34bbd25ef764336b5ad8fda3" rel="noopener">
+              <img width="202" height="155" loading="lazy" src="images/certificates/pyfore-min.png" alt="Python for Everybody Certificate" /></a>
+            </div>
+            <div class="certificate">
+              <time datetime="2020-12-03" title="Completed Dec 3, 2020">
+                <strong>Completed</strong> on Dec 10, 2020
+              </time>
+              <h3 class="title">
+                <a target="_blank" href="https://coursera.org/share/33931eb2fab0781652ae852bfe2ff1b4" rel="noopener">Python 3 Programming (5 courses)</a>
+              </h3>
+              <a target="_blank" href="https://coursera.org/share/33931eb2fab0781652ae852bfe2ff1b4" rel="noopener">
+                <img width="202" height="155" loading="lazy" src="images/certificates/py3-min.png" alt="Python 3 Programming Certificate" />
+              </a>
+            </div>
+            <div class="certificate">
+              <time datetime="2020-12-09" title="Completed Nov 24, 2020">
+                <strong>Completed</strong> on Nov 24, 2020
+              </time>
+              <h3 class="title">
+                <a target="_blank" href="https://coursera.org/share/6cecef086c376c00f36bf9629f69a50c" rel="noopener">AWS Fundamentals (4 courses)</a>
+              </h3>
+              <a target="_blank" href="https://coursera.org/share/6cecef086c376c00f36bf9629f69a50c" rel="noopener">
+                <img width="202" height="155" loading="lazy" src="images/certificates/aws-min.png" alt="Amazon Web Services Fundamentals Certificate" />
+              </a>
+            </div>
+            <div class="certificate">
+              <time datetime="2020-12-21" title="Completed Nov 17, 2020">
+                <strong>Completed</strong> on Nov 17, 2020
+              </time>
+              <h3 class="title"><a target="_blank" href="https://coursera.org/share/29bc72f99358058844c97164a17e148c" rel="noopener">
+                Programming with Google Go (3 courses)
+              </a>
+              </h3>
+              <a target="_blank" href="https://coursera.org/share/29bc72f99358058844c97164a17e148c" rel="noopener">
+                <img width="202" height="155" loading="lazy" src="images/certificates/go-min.png" alt="Programming with Google's Go language Certificate"/>
+              </a>
+            </div>
+            <div class="certificate">
+              <time datetime="2020-12-11" title="Completed Nov 23, 2020">
+                <strong>Completed</strong> on Nov 23, 2020
+              </time>
+              <h3 class="title"><a target="_blank" href="https://coursera.org/share/64d6a84b48778a6a61515a8ba88a8eae" rel="noopener">
+                Introduction to Programming in C (4 courses)
+              </a>
+              </h3>
+              <a target="_blank" href="https://coursera.org/share/64d6a84b48778a6a61515a8ba88a8eae" rel="noopener">
+                <img width="202" height="155" loading="lazy" src="images/certificates/clang-min.png" alt="Introduction to Programming in C Certificate"/>
+              </a>
+            </div>
+            <div class="certificate d-flex d-lg-none">
+              <time datetime="2020-12-29" title="Completed Nov 10, 2020">
+                <strong>Completed</strong> on Nov 10, 2020
+              </time>
+              <h3 class="title">
+                <a target="_blank" href="https://coursera.org/share/c6f86a2900ad2571777a7041f7f7209d" rel="noopener">
+                  Algorithms (4 courses)
+                </a>
+              </h3>
+              <a target="_blank" href="https://coursera.org/share/c6f86a2900ad2571777a7041f7f7209d" rel="noopener">
+                <img width="202" height="155" loading="lazy" src="images/certificates/algorithms-min.png" alt="Algorithms Certificate"/>
+              </a>
+            </div>
+          </div>
+        </section>
+      
+        <section class="skills-intro">
+          <h2>Technical Skills</h2>
+          <p> Swipe to see more. Hover or press the images to expand.</p>
+        </section>
+        <div class="skills-section">
+          <div class="swiper-container">
+            <div class="swiper-pagination"></div>
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="container-general">
+                  <div class="gallery-wrap wrap-effect-1">
+                    <div class="item"><img width="311" height="211" loading="lazy" src="images/swiper/1-min.png" alt="php, javascript, Structured Query Language, and SQL lite"/></div>
+                    <div class="item"><img width="311" height="211" loading="lazy" src="images/swiper/2-min.png" alt="Swift, Kotlin, Java, and My SQL"/></div>
+                    <div class="item"><img width="311" height="211" loading="lazy" src="images/swiper/3-min.png" alt="Python, HTML 5, CSS 3, and Sass"/></div>
+                    <div class="item"><img width="311" height="211" loading="lazy" src="images/swiper/4-min.png" alt="Google Go Language, C, C++, and MongoDB"/></div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="container-general">
+                  <div class="gallery-wrap wrap-effect-2">
+                    <div class="item"><img width="311" height="211" loading="lazy" src="images/swiper/5-min.png" alt="Bootstrap 5, jQuery, Node and express "/></div>
+                    <div class="item"><img width="311" height="211" loading="lazy" src="images/swiper/6-min.png" alt="SwiftUI, Laravel, and React"/></div>
+                    <div class="item"><img width="311" height="211" loading="lazy" src="images/swiper/7-min.png" alt="Jupyter notebook, NumPy, and Pandas"/></div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="container-general">
+                  <div class="gallery-wrap wrap-effect-3">
+                    <div class="item"><img width="311" height="211" loading="lazy" src="images/swiper/8-min.png" alt="php Storm, Atom, Xcode, and Developer"/></div>
+                    <div class="item"><img width="311" height="211" loading="lazy" src="images/swiper/9-min.png" alt="Mamp, Eclipse, Postman, and Android Studio"/></div>
+                    <div class="item"><img width="311" height="211" loading="lazy" src="images/swiper/10-min.png" alt="Terminal, Source Tree, Termius, and MongoDB Compass"/></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <div class="campus-footer"></div>
+        <div class="row p-3">
+          <div class="col-12">
+            <h3 class="connect-title">Lets Connect</h3>
+          </div>
+        </div>
+        <div class="row connect-info p-5">
+          <div class="col-12 col-md-6">
+            <a class="linkedin" href="https://google.com" aria-label="View my Linkedin profile" rel="noopener">
+              <i class="fab fa-linkedin" ></i>
+              <span>Ahmad Dorra</span>
+            </a>
+          </div>
+          <div class="col-12 col-md-6">
+            <a class="gmail" href="mailto:ahmadeldorra1@gmail.com" aria-label="Contact me via email" rel="noopener">
+              <i class="far fa-envelope"></i>
+              <span>ahmadeldorra1@gmail.com</span>
+            </a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 mt-4 text-center">
+            <span class="text-muted">&#169; 2021 Ahmad Dorra. All rights reserved</span>
+          </div>
+        </div>
+      </footer>
+      <script>
+        window.onload = function(){
+          document.querySelector(".loading").style.display = "none";
+        }
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.js"></script>
+      <script>
+        var secHeight = document.querySelector(".second").clientHeight*1 +"px";
+        var secWidth = document.querySelector(".second").clientWidth +"px";
+
+        var controller = new ScrollMagic.Controller();
+
+        var content = document.querySelector(".scroll-content");
+
+        var scrollAnim = new gsap.timeline()
+
+        scrollAnim.to(content, {
+          x: "-100vw",
+          duration: 2
+        }).from(".second", {
+            x: "+="+secWidth,
+            opacity: 0.5,
+          },
+          0
+        );
+
+        var scene = new ScrollMagic.Scene({
+          triggerElement: content,
+          duration: secHeight,
+          triggerHook: 0,
+          offset: 0
+        }).setTween(scrollAnim).setPin(content).addTo(controller);
+
+        window.addEventListener("resize", res);
+
+        var y = 0;
+        var bound = document.getElementById("s").getBoundingClientRect();
+        var svgHeight = document.getElementById("s").clientHeight;
+        var upperBound = window.pageYOffset + bound.top //b
+        var lowerBound = window.pageYOffset + bound.top - svgHeight/2 //a
+
+        function res(){
+          secHeight = document.querySelector(".second").clientHeight*1 +"px";
+          secWidth = document.querySelector(".second").clientWidth +"px";
+
+
+          scene.removePin(true);
+          scene.setPin(content).addTo(controller);
+          scene.refresh();
+
+          bound = document.getElementById("s").getBoundingClientRect()
+          svgHeight = document.getElementById("s").clientHeight
+          upperBound =  window.pageYOffset + bound.top
+          lowerBound =  window.pageYOffset +bound.top - svgHeight/2
+        }
+
+        async function fetchPaths() {
+            const [paths50Response, paths100Response, paths150Response,paths200Response] = await Promise.all([
+              fetch('js/path-50.json'),
+              fetch('js/path-100.json'),
+              fetch('js/path-150.json'),
+              fetch('js/path-200.json')
+            ]);
+
+            const paths50 = await paths50Response.json();
+            const paths100 = await paths100Response.json();
+            const paths150 = await paths150Response.json();
+            const paths200 = await paths200Response.json();
+
+            return {
+              paths50,
+              paths100,
+              paths150,
+              paths200
+            };
+        }
+        fetchPaths().then(({ paths50, paths100, paths150, paths200}) => {
+          window.onscroll = function() {myFunction()};
+          function myFunction() {
+            var x = document.documentElement.scrollTop
+            if( x < lowerBound){
+              document.getElementById("shape").innerHTML = "<path d=\"M722 724a5 5 0 002-2 3 3 0 000-1 3 3 0 000-1 4 4 0 00-1-2 5 5 0 00-2-2 5 5 0 00-2 0 4 4 0 00-3 1 4 4 0 00-1 2 4 4 0 000 3 4 4 0 001 1 5 5 0 002 1 6 6 0 003 0 4 4 0 001 0z\" />"
+            }
+            if ( x > lowerBound && x < upperBound) {
+              y = (x - lowerBound) / (upperBound - lowerBound) * 198
+              y = Math.round(y)
+              if(y < 50){
+                document.getElementById("shape").innerHTML = "<path d=\""+paths50[y%50]+"\"/>"
+              }
+              else if ( y < 100){
+                var inner = ""
+                if( Array.isArray(paths100[y%50]) ){
+                  for (var i = 0; i < paths100[y%50].length; i++) {
+                    inner = inner + "<path d=\""+paths100[y%50][i]+"\" />"
+                  }
+                }else {
+                  inner = "<path d=\""+paths100[y%50]+"\"/>"
+                }
+                document.getElementById("shape").innerHTML = inner
+              }
+              else if( y < 150){
+                if( Array.isArray(paths150[y%50]) ){
+                  for (var i = 0; i < paths150[y%50].length; i++) {
+                    inner = inner + "<path d=\""+paths150[y%50][i]+"\" />"
+                  }
+                }else {
+                  inner = "<path d=\""+paths150[y%50]+"\"/>"
+                }
+                document.getElementById("shape").innerHTML = inner
+              }
+              else{
+                if( Array.isArray(paths200[y%50]) ){
+                  for (var i = 0; i < paths200[y%50].length; i++) {
+                    inner = inner + "<path d=\""+paths200[y%50][i]+"\" />"
+                  }
+                }else {
+                  inner = "<path d=\""+paths200[y%50]+"\"/>"
+                }
+                document.getElementById("shape").innerHTML = inner
+              }
+
+            }
+            if( x >= upperBound){
+              document.getElementById("shape").innerHTML = "<rect width=\"1440\" height=\"1440\"/>"
+            }
+          }
+        }).catch(error => {
+            document.getElementById("shape").innerHTML = "<rect width=\"1440\" height=\"1440\"/>"
+        });
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js"></script>
+      <script>
+        const swiper=new Swiper('.swiper-container',{direction:'vertical',mousewheel:{},effect:'cube',keyboard:{enabled:!0,onlyInViewport:!1},pagination:{el:'.swiper-pagination',clickable:!0,},autoplay:{delay:5000,disableOnInteraction:!0,},})
+      </script>
+</body>
+</html>
