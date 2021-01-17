@@ -23,7 +23,11 @@
           background: white !important;
       }
       .loading{
-        top:0;left:0;background:#fff;position:fixed;width:100vw;height:100vh;overflow:hidden;z-index:1000;
+        top:0;left:0;
+        background:#fff;
+        position:fixed;
+        width:100vw;height:100vh
+        ;overflow:hidden;z-index:1000;
       }
       .loading .dot{
         display:block;
@@ -634,6 +638,10 @@
         </div>
       </footer>
       <script>
+          var fixedLoading = document.getElementById('loading');
+          fixedLoading.addEventListener('touchmove', function(e) {
+                  e.preventDefault();
+          }, false);
         window.onload = function(){
           document.querySelector(".loading").style.display = "none";
         }
