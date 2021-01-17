@@ -274,6 +274,9 @@
 
     }
       @media (max-width:500px){
+          #introduction{
+              padding-top: 65px;
+          }
         .skills-section{height:50vh; max-height: 400px }
         .swiper-container{width:100%;height:50%}
         .container-general .gallery-wrap.wrap-effect-1 .item{background-size:contain;background-repeat:no-repeat}
@@ -314,6 +317,10 @@
       @keyframes slice{0%{line-height:0%}100%{line-height:100%}}
       @keyframes dynamic{0%{background-position:0%}100%{background-position:100%}}
       @keyframes blinking{0%{fill:#800}25%{fill:#800}50%{fill:#fff}75%{fill:#800}100%{fill:#800}}
+      
+      @supports (-webkit-touch-callout: none) {
+          #hello-world-section{background:url(images/pexel-min.png) no-repeat fixed center center;background-size: contain;}
+      }
     </style>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css" rel="stylesheet"/>
     <link href="fonts/fonts-stylesheet.css" rel="stylesheet"/>
@@ -423,7 +430,7 @@
           <div class="project">
             <h3 class="title">Landmarks App</h3>
             <div class="description">
-              <p>It Covers SwiftUI essentials, drawing and animations, and design. (From Apple) </p>
+              <p>It Covers SwiftUI essentials, drawing, animations, and design. (From Apple) </p>
             </div>
             <div><img width="270" height="155" loading="lazy" src="images/projects/landmarks-min.png" alt=""/></div>
           </div>
