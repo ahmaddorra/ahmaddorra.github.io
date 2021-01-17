@@ -26,8 +26,7 @@
         top:0;left:0;
         background:#fff;
         position:fixed;
-        width:100vw;height:100vh;
-        overflow:hidden;z-index:1000;
+        width:100vw;height:100vh;overflow:hidden;z-index:1000;
       }
       .loading .dot{
         display:block;
@@ -339,7 +338,7 @@
     <script src="https://kit.fontawesome.com/c4c221ed03.js" crossorigin="anonymous" defer></script>
 </head>
 <body>
-  <div class="loading"><div class="dot"></div></div>
+  <div id="fixedLoader" class="loading"><div class="dot"></div></div>
   <main>
     <div id="hello-world-section">
       <div class="svg-container">
@@ -638,7 +637,10 @@
         </div>
       </footer>
       <script>
-        
+          var fixedLoader = document.getElementById('fixedLoader');
+          fixedLoader.addEventListener('touchmove', function(e) {
+                  e.preventDefault();
+          }, false);
         window.onload = function(){
           document.querySelector(".loading").style.display = "none";
         }
