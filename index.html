@@ -40,11 +40,10 @@
       .parallax{height:450px;background-image:url(images/a2-min.png),url(images/pexel-min.jpg);background-attachment:fixed,scroll;background-position:center,40%;background-repeat:no-repeat;background-size:100% 1150px, 58% 1000px;background-size: cover, cover;}
       #beirut{width:1440px;height:1440px}
       .motivation-section{padding:0 10px}
-      .motivation-div{top:70px;left:51%;position:absolute;transform:translate(-50%,0%)}
+      .motivation-header{top:70px;left:51%;position:absolute;transform:translate(-50%,0%)}
       .motivation-ques{top:60px;background:url(images/bg-min.jpg);-webkit-background-clip:text;color:transparent;font-family:"Helvetica","Arial",sans-serif;font-size:80px;font-weight:900;animation:dynamic 7s infinite alternate linear;white-space:nowrap}
       .motivation-text{margin-top:135px;text-align:justify;font-size:25px;font-weight:500;letter-spacing:.011em;font-family:"Helvetica","Helvetica","Arial",sans-serif}
       
-  
       .interests-section{padding:0 10px}
       .interests-section h2{font-family:"Arial Rounded MT Bold","Arial",sans-serif}
       .interests-section h3{color: #f56901;font-family:"Arial Rounded MT Bold","Arial",sans-serif;margin-top:.5rem;text-align:center;}
@@ -80,7 +79,6 @@
       .project .description p{font-family:"Arial",sans-serif;font-style:normal;font-weight:800;text-transform:uppercase;color:#ff7a18;font-size:.66rem;}
       .project img{width:100%; height: 100%}
       
-      
       .certificates-section h3{font-weight:800;margin:0 0 1.5rem}
       .certificates-section h3 a{color:inherit}
       .certificates-section h3 a:focus,h3 a:hover{opacity:.66}
@@ -103,7 +101,6 @@
       .certificate-svg{display: block;height:100px;align-self: center;overflow: visible;}
       .certificate-svg text{font-size:65px}
       
-    
       .skills-intro{background:rgba(236,236,236,.37);padding:20px}
       .skills-intro h2{font-family:"Arial Rounded MT Bold","Arial",sans-serif}
       .skills-intro p{font-family:"Helvetica",sans-serif}
@@ -120,21 +117,18 @@
       .gallery-wrap .item img{width: 100%;height: 100%;}
       @keyframes rotate{0%{transform:rotate(0deg) translate3d(0,0,0)}25%{transform:rotate(10deg) translate3d(0,0,0)}50%{transform:rotate(-10deg) translate3d(0,0,0)}75%{transform:rotate(5deg) translate3d(0,0,0)}100%{transform:rotate(0deg) translate3d(0,0,0)}}
       
-      
-      
-      
       @media only screen and (max-width:1366px){
-        .motivation-div{top:64px}
+        .motivation-header{top:64px}
         .motivation-ques{top:64px;font-size:75px;font-weight:800}
         .motivation-text{font-size:22px}
       }
       @media only screen and (max-width:1300px){
-        .motivation-div{top:68px}
+        .motivation-header{top:68px}
         .motivation-ques{top:68px;font-size:60px;font-weight:700}
         .motivation-text{margin-top:125px;font-size:21px}
       }
       @media only screen and (max-width:1200px){
-        .motivation-div{top:60px}
+        .motivation-header{top:60px}
         .motivation-ques{top:60px;font-size:50px}
         .motivation-text{margin-top:100px;font-size:19px;letter-spacing:.021em}
         .project{min-width:220px}
@@ -147,7 +141,7 @@
         .typography-hero-subhead{font-size:40px}
       }
       @media only screen and (max-width:1112px){
-        .motivation-div{top:55px}
+        .motivation-header{top:55px}
         .motivation-ques{top:55px}
         .motivation-text{margin-top:95px;font-size:18px}
       }
@@ -199,7 +193,7 @@
       @media only screen and (max-width:375px){
         .typography-hero-headline{font-size:33px}
         .typography-hero-subhead{padding:0 10%;font-size:18px}
-        .motivation-div{top:20px}
+        .motivation-header{top:20px}
         .motivation-ques{top:20px;font-size:45px;font-weight:700}
         .motivation-text{padding:0 15px;margin-top:60px}
       }
@@ -216,9 +210,6 @@
       .container-general {width: 55%;}
     }
     
-    
-      
-      
       .campus-footer{width:100vw;height:117px;background-image:url(images/footer.svg);background-repeat:repeat-x;background-position:bottom}
       @media only screen and (min-width:530px) and (max-width:999px){
         .campus-footer{background-repeat:no-repeat;width:100%;overflow:hidden}
@@ -267,7 +258,7 @@
       <section style="background-color:white;" class="scroll-content">
         <div class="first"></div>
         <div id="introduction" class="second">
-          <h2 class="manifesto-headline typography-hero-headline">Who Am I ? <br/> I am Ahmad Dorra</h2>
+          <header><h2 class="manifesto-headline typography-hero-headline">Who Am I ? <br/> I am Ahmad Dorra</h2></header>
           <p class="manifesto-copy typography-hero-subhead">
             I'm a freelance Lebanese developer.  <br/>I recently graduated from Beirut Arab University, where I studied Computer Science.
                 <br/>I started by building websites, then grew interested in iOS App Development (especially after releasing SwiftUI).
@@ -279,9 +270,9 @@
       <section>
           <div class="row d-flex motivation-section">
         <div class="col-lg-6 col-12" style="position:relative">
-          <div class="motivation-div">
+          <header class="motivation-header">
             <h3 class="motivation-ques">My Motivation</h3>
-          </div>
+          </header>
           <p class="motivation-text">
             <br/>The latest events taking place enhanced my motivation to work harder.I'm a goal-oriented person, I have set my milestones and worked hard to achieve them.The more the pressure the more I am determined to reach my goals.My recent endeavors included completing 48 courses on Coursera and 4 on freeCodeCamp with various projects along the way.<br/>I am eager to represent my country to the best of my ability through my education and achievements. </p>
         </div>
@@ -298,9 +289,9 @@
       
     <section class="interests-section">
       <div class="row">
-        <div class="col-12">
+        <header>
           <h2>Interests</h2>
-        </div>
+        </header>
           <div class="col-md-6 d-none d-md-block mt-lg-4 mt-md-2">
             <h3>Web Apps</h3>
             <p>
@@ -341,9 +332,9 @@
         </div>
       </section>
       <section class="projects-section">
-        <div class="projects-header">
+        <header class="projects-header">
           <h2>Personal <br/>Projects</h2>
-        </div>
+        </header>
         <div class="projects-grid">
           <div class="project">
             <h3 class="title">Landmarks App</h3>
@@ -398,11 +389,11 @@
       </section>
       
       <section class="certificates-section">
-        <div class="certificates-header">
+        <header class="certificates-header">
           <svg class="certificate-svg" version="1.1" xmlns="http://www.w3.org/2000/svg">
             <text class="path" font-family="serif" id="svg_1" y="80"  stroke-width="2" stroke="#000000" fill="#000000">Certificates</text>
           </svg>
-        </div>
+        </header>
         <div class="certificates-grid mt-3">
           <div class="certificate">
             <time datetime="2020-12-21" title="Completed Oct 28, 2020">
@@ -477,8 +468,10 @@
         </section>
       
         <section class="skills-intro">
+            <header>
           <h2>Technical Skills</h2>
           <p> Swipe to see more. Hover or press the images to expand.</p>
+          </header>
         </section>
         <div class="skills-section">
           <div class="swiper-container">
